@@ -170,6 +170,15 @@ p{margin-bottom:16px}
 .video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 .ep{font-size:.75rem;color:var(--pink);opacity:.75;letter-spacing:.1em;text-transform:uppercase}
 
+/* ---------- Wrench attacks page ---------- */
+.embed{position:relative;height:80vh;min-height:520px;border-radius:12px;overflow:hidden;
+  border:1px solid var(--pink);box-shadow:0 0 22px rgba(255,46,166,.25);background:#fff;margin:14px 0}
+.embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.small{font-size:.8rem;opacity:.75}
+.sources{padding-left:22px}
+.sources li{margin-bottom:10px;font-size:.85rem}
+.sources li::marker{color:var(--pink)}
+
 /* ---------- Blog ---------- */
 .post .meta{font-size:.75rem;opacity:.65;margin-bottom:8px}
 .post .full{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease}
@@ -223,7 +232,8 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
     <nav id="menu">
       <ul>
         <li><a href="#intro" data-page="intro">Intro</a></li>
-        <li><a href="#wrench" data-page="wrench">Wrench Attack Series</a></li>
+        <li><a href="#attacks" data-page="attacks">Wrench Attacks</a></li>
+        <li><a href="#youtube" data-page="youtube">YouTube Series</a></li>
         <li><a href="#blog" data-page="blog">Blog</a></li>
         <li><a href="#resources" data-page="resources">Resources</a></li>
         <li><a href="#contact" data-page="contact">Contact</a></li>
@@ -261,10 +271,53 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
   </div>
 </section>
 
-<!-- ======================= WRENCH ATTACK SERIES ======================= -->
-<section class="page" id="wrench">
-  <div class="prompt">./wrench_attack_series</div>
-  <h1>Wrench Attack Series</h1>
+<!-- ======================= WRENCH ATTACKS ======================= -->
+<section class="page" id="attacks">
+  <div class="prompt">./wrench_attacks</div>
+  <h1>Wrench Attacks</h1>
+
+  <!-- ✏️ DRAFT TEXT — edit freely -->
+  <h2>What is a wrench attack?</h2>
+  <p class="lead">A wrench attack is the use of physical force, or the threat of it, to make someone hand over their cryptocurrency or the keys that control it.</p>
+  <p>The name comes from a well-known xkcd comic: why spend millions trying to crack someone's encryption when a $5 wrench and a threat will get you the password? The strongest digital security in the world can be bypassed by going after the person who holds the keys.</p>
+
+  <h2>Why it matters</h2>
+  <p>Bitcoin is designed to be held directly, without a bank in the middle. That is its strength, and it is also why physical coercion works: there is often no institution to freeze a transfer, reverse it, or slow it down.</p>
+  <p>Attacks are no longer confined to the very wealthy or the very public. Data leaks, social media and visible lifestyles can all put ordinary holders, and the people around them, on an attacker's radar.</p>
+
+  <h2>Current responses</h2>
+  <p>Most advice today falls into a few groups:</p>
+  <ul class="sources">
+    <li><b>Technical:</b> multisig, keys stored in separate places, time-locks and vaults that delay withdrawals, and decoy wallets.</li>
+    <li><b>Operational:</b> keeping holdings private, limiting what you share online, and reducing personal data held by exchanges and services.</li>
+    <li><b>Physical:</b> home security, situational awareness, and plans that the whole household understands.</li>
+    <li><b>Legal and institutional:</b> policing, prosecution and insurance, which are still catching up.</li>
+  </ul>
+
+  <!-- ✏️ YOUR DESCRIPTION -->
+  <div class="divider"></div>
+  <p>[Your own description goes here.]</p>
+
+  <!-- TRACKER — Jameson Lopp's database, embedded live -->
+  <h2>Known attacks: live tracker</h2>
+  <p class="small">A public database of known physical attacks on bitcoin holders, maintained by Jameson Lopp. Scroll and search inside the box, or <a href="https://jlopp.github.io/physical-bitcoin-attacks/" target="_blank" rel="noopener">open it full screen ↗</a>.</p>
+  <div class="embed">
+    <iframe src="https://jlopp.github.io/physical-bitcoin-attacks/" title="Physical bitcoin attacks tracker" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+  </div>
+
+  <!-- ✏️ SOURCES — copy a <li>…</li> line to add another -->
+  <h2>Sources</h2>
+  <ol class="sources">
+    <li>[Author, Title, Publication, Year] — <a href="#" target="_blank" rel="noopener">link</a></li>
+    <li>[Author, Title, Publication, Year] — <a href="#" target="_blank" rel="noopener">link</a></li>
+    <li>Lopp, J. Known Physical Bitcoin Attacks — <a href="https://jlopp.github.io/physical-bitcoin-attacks/" target="_blank" rel="noopener">jlopp.github.io/physical-bitcoin-attacks</a></li>
+  </ol>
+</section>
+
+<!-- ======================= YOUTUBE SERIES ======================= -->
+<section class="page" id="youtube">
+  <div class="prompt">./youtube_series</div>
+  <h1>YouTube Series</h1>
   <p class="lead">When Bitcoin Gets Physical</p>
   <p>In the modern era it is becoming increasingly common for attacks on crypto holders to move beyond the digital world.</p>
     <p>An evolving threat landscape calls for an expansion of the way we understand our own place in this ecosystem. It is important to me that we don't settle on extremely technical self-custody setups as the only suggested response to wrench attacks, so I took it on myself to read and understand the research and translate it for you.</p>
