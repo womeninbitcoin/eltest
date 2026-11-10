@@ -90,7 +90,7 @@ header{
 
 nav ul{list-style:none;display:flex;gap:6px}
 nav a{
-  display:block;padding:8px 14px;border-radius:999px;
+  display:block;padding:8px 12px;border-radius:999px;
   color:var(--pink-soft);font-size:.85rem;font-weight:400;
   border:1px solid transparent;
 }
@@ -179,6 +179,22 @@ p{margin-bottom:16px}
 .sources li{margin-bottom:10px;font-size:.85rem}
 .sources li::marker{color:var(--pink)}
 
+/* ---------- WiBS ---------- */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:30px 0 16px}
+@media (max-width:560px){.stats{gap:8px}.stat{padding:14px 6px}.stat .num{font-size:1.3rem}.stat .lbl{font-size:.6rem}}
+.stat{background:var(--panel);border:1px solid var(--pink-dim);border-radius:var(--radius);padding:20px;text-align:center}
+.stat .num{display:block;font-size:1.9rem;font-weight:800;color:var(--pink);text-shadow:0 0 14px rgba(255,46,166,.6)}
+.stat .lbl{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.map{position:relative;height:260px;border-radius:var(--radius);overflow:hidden;border:1px solid var(--pink);
+  box-shadow:0 0 22px rgba(255,46,166,.25)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:invert(.92) hue-rotate(180deg) saturate(.7) brightness(.9)}
+.map::after{content:"";position:absolute;inset:0;background:var(--pink);mix-blend-mode:color;opacity:.35;pointer-events:none}
+.meets{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+.meets .card{margin:0;display:flex;flex-direction:column}
+.meet .meta{font-size:.72rem;opacity:.7;margin-bottom:8px}
+.meet p{flex:1;font-size:.88rem}
+.readon{font-size:.78rem;color:var(--pink)}
+
 /* ---------- Blog ---------- */
 .post .meta{font-size:.75rem;opacity:.65;margin-bottom:8px}
 .post .full{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease}
@@ -236,6 +252,7 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
         <li><a href="#youtube" data-page="youtube">YouTube Series</a></li>
         <li><a href="#blog" data-page="blog">Blog</a></li>
         <li><a href="#resources" data-page="resources">Resources</a></li>
+        <li><a href="#wibs" data-page="wibs">WiBS</a></li>
         <li><a href="#contact" data-page="contact">Contact</a></li>
         <li><a href="https://x.com/El_FreedomFairy" target="_blank" rel="noopener" class="ext">X</a></li>
       </ul>
@@ -422,6 +439,106 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
   </div>
 </section>
 
+<!-- ======================= WiBS ======================= -->
+<section class="page" id="wibs">
+  <div class="prompt">./wibs</div>
+  <h1>Women in Bitcoin Sydney</h1>
+
+  <!-- ✏️ ABOUT -->
+  <h2>About</h2>
+  <p>[Write about Women in Bitcoin Sydney here.]</p>
+
+  <a class="btn solid" href="https://x.com/WomenInBTCSyd" target="_blank" rel="noopener">Follow @WomenInBTCSyd on X ↗</a>
+  <a class="btn" href="https://www.meetup.com/women-in-bitcoin-sydney/" target="_blank" rel="noopener">Join on Meetup ↗</a>
+
+  <!-- STATS — members and rating update automatically from wibs-stats.json -->
+  <div class="stats">
+    <div class="stat"><span class="num" id="wibs-members">74</span><span class="lbl">official members</span></div>
+    <div class="stat"><span class="num">★ <span id="wibs-rating">5.0</span></span><span class="lbl"><span id="wibs-ratings">10</span> ratings</span></div>
+    <div class="stat"><span class="num">📍</span><span class="lbl">Sydney, Australia</span></div>
+  </div>
+  <div class="map">
+    <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=150.95%2C-34.0%2C151.35%2C-33.75&layer=mapnik&marker=-33.8688%2C151.2093" title="Sydney, Australia" loading="lazy"></iframe>
+  </div>
+
+  <!-- ✏️ PREVIOUS MEETS — newest at the top. Copy an <a class="card meet">…</a> block to add one. -->
+  <h2>Previous Meets</h2>
+  <div class="meets">
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/315131473/" target="_blank" rel="noopener">
+      <div class="meta">Sun 7 Jun 2026 · Spicy Bean Café, Castle Hill</div>
+      <h3>Sydney Bitcoiner Ladies Lunch</h3>
+      <p>A casual catch-up over lunch to discuss life, Bitcoin, and wherever else the conversation takes us…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/314735923/" target="_blank" rel="noopener">
+      <div class="meta">Sun 24 May 2026 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>Bitcoin Meets Wall Street</h3>
+      <p>What are Michael Saylor and Strategy doing with Bitcoin? Corporate treasuries, STRK, leverage and the growing financialisation of BTC…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/314174209/" target="_blank" rel="noopener">
+      <div class="meta">Sun 12 Apr 2026 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>Privacy and Security in Bitcoin</h3>
+      <p>This session focuses on how identity interacts with Bitcoin, and what that means in practice. We&#x27;ll start with pseudoanonymity…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/313665472/" target="_blank" rel="noopener">
+      <div class="meta">Sun 15 Mar 2026 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>Bitcoin in Times of Crisis</h3>
+      <p>What actually happens to money, markets, and personal freedom when the world becomes unstable…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/313484574/" target="_blank" rel="noopener">
+      <div class="meta">Thu 5 Mar 2026 · Online</div>
+      <h3>WiBS x Women of Bitcoin Summit</h3>
+      <p>Women in Bitcoin Sydney joined the global Women of Bitcoin Summit to discuss how the next generation is carrying Bitcoin forward…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/313485237/" target="_blank" rel="noopener">
+      <div class="meta">Sun 1 Mar 2026 · Wyong Milk Factory Tavern, Wyong</div>
+      <h3>WiBS x Central Coast Bitcoin</h3>
+      <p>Women in Bitcoin Sydney presents at the Central Coast Bitcoin meetup, sharing what we&#x27;re doing and what we&#x27;ve learnt…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/313103430/" target="_blank" rel="noopener">
+      <div class="meta">Sun 8 Feb 2026 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>Bitcoin and Freedom</h3>
+      <p>Our first meet of 2026: discovering how Bitcoin complements political freedom and self-reliance…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/311901509/" target="_blank" rel="noopener">
+      <div class="meta">Sun 7 Dec 2025 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>Bitcoin Catch-Up: Open Discussion Session</h3>
+      <p>An open discussion about current events, plus my talk on how younger generations can use Bitcoin as a way out of inflation…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/311374656/" target="_blank" rel="noopener">
+      <div class="meta">Sun 26 Oct 2025 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>Back to the Basics – Beginners Welcome</h3>
+      <p>Going back to the basics: what Bitcoin is and why it&#x27;s important. Newbies and the simply curious are highly encouraged…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/311131335/" target="_blank" rel="noopener">
+      <div class="meta">Sun 28 Sep 2025 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>The Bitcoin Basics – Lightning &amp; Trivia</h3>
+      <p>Refreshing the basics, making small payments on the Lightning Network, then a game of Bitcoin Trivia…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/310805576/" target="_blank" rel="noopener">
+      <div class="meta">Sun 14 Sep 2025 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>The Bitcoin Basics</h3>
+      <p>After the success of our first meetup: getting to understand what Bitcoin is and why it&#x27;s important…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+    <a class="card meet" href="https://www.meetup.com/women-in-bitcoin-sydney/events/310469586/" target="_blank" rel="noopener">
+      <div class="meta">Sun 31 Aug 2025 · Ampersand Cafe &amp; Bookstore, Paddington</div>
+      <h3>The Bitcoin Basics – First Meetup!</h3>
+      <p>Welcome curious women of Sydney! Our very first meetup, with seats limited to ten…</p>
+      <span class="readon">Read more on Meetup ↗</span>
+    </a>
+  </div>
+</section>
+
 <!-- ======================= CONTACT ======================= -->
 <section class="page" id="contact">
   <div class="prompt">./contact</div>
@@ -508,6 +625,14 @@ document.querySelectorAll('.post .more').forEach(b => {
 });
 
 document.getElementById('year').textContent = new Date().getFullYear();
+
+// ---------- WiBS stats (updated daily by the GitHub automation) ----------
+fetch('wibs-stats.json', {cache:'no-store'}).then(r => r.ok ? r.json() : null).then(d => {
+  if (!d) return;
+  if (d.members) document.getElementById('wibs-members').textContent = d.members;
+  if (d.rating) document.getElementById('wibs-rating').textContent = Number(d.rating).toFixed(1);
+  if (d.ratings) document.getElementById('wibs-ratings').textContent = d.ratings;
+}).catch(() => {});
 </script>
 <script>
 // ---------- neon net (random drifting network) ----------
