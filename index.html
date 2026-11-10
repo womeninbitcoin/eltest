@@ -222,6 +222,22 @@ p{margin-bottom:16px}
 .case.pending{opacity:.8}
 .pend{display:inline-block;font-size:.68rem;letter-spacing:.1em;color:var(--bg);background:var(--pink-soft);border-radius:999px;padding:2px 10px;margin-bottom:8px}
 
+.filters{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px;margin:18px 0 8px;
+  background:rgba(7,4,10,.6);padding:12px;border:1px solid var(--pink-dim);border-radius:var(--radius)}
+@media (max-width:560px){.filters{grid-template-columns:1fr 1fr}.filters input,.filters select{font-size:.68rem;padding:7px 10px;padding-right:22px}}
+.filters input,.filters select{font-family:var(--font);font-size:.75rem;color:var(--pink-soft);background:rgba(255,46,166,.06);
+  border:1px solid var(--pink-dim);border-radius:999px;padding:8px 12px;outline:none;width:100%}
+.filters select{appearance:none;-webkit-appearance:none;cursor:pointer;
+  background-image:linear-gradient(45deg,transparent 50%,var(--pink) 50%),linear-gradient(135deg,var(--pink) 50%,transparent 50%);
+  background-position:calc(100% - 16px) 50%,calc(100% - 11px) 50%;background-size:5px 5px;background-repeat:no-repeat;padding-right:26px}
+.filters select option{background:#12081a;color:var(--pink-soft)}
+.filters input:focus,.filters select:focus{border-color:var(--pink);box-shadow:0 0 10px rgba(255,46,166,.3)}
+.filters select.set{border-color:var(--pink);color:var(--pink)}
+.filters #f-q{grid-column:1/-1}
+.filters .more{margin:0}
+@media (max-width:560px){.filters #f-reset{grid-column:1/-1}}
+.empty{text-align:center;opacity:.6;padding:30px}
+
 /* ---------- Blog ---------- */
 .post .meta{font-size:.75rem;opacity:.65;margin-bottom:8px}
 .post .full{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease}
@@ -384,7 +400,7 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
       <dt>B-1</dt><dd>Opportunistic — zero planning</dd>
       <dt>B-2</dt><dd>Semi-planned — target identified, not thoroughly researched; minimal coordination</dd>
       <dt>B-3</dt><dd>Fully planned — research, surveillance, set entry method, briefed co-offenders, equipment</dd>
-      <dt>B-4</dt><dd>Organised — B-3 plus transnational network, division of labour, purchased data, remote orchestrator</dd>
+      <dt>B-4</dt><dd>Organised — all of B-3 plus at least one of: transnational network; division of labour (intelligence / execution / laundering); purchased or leaked data; orchestrator remote from the scene</dd>
       <h4>Type C — Violence continuum</h4>
       <dt>C-0</dt><dd>Non-contact / psychological — remote threat only</dd>
       <dt>C-1</dt><dd>Threat only (real-world) — threatening presence, no physical contact</dd>
@@ -409,6 +425,19 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
     <p class="small">Multiple codes are allowed for A and E. The violence meter shows the highest level reached. N/A means the field doesn't apply (for example, no crypto was taken).</p>
   </details>
 
+  <div class="filters" id="case-filters">
+    <input type="search" id="f-q" placeholder="Search place, victim or text…">
+    <select id="f-defn"><option value="">Definition: all</option></select>
+    <select id="f-conf"><option value="">Confidence: all</option></select>
+    <select id="f-A"><option value="">Type: all</option></select>
+    <select id="f-B"><option value="">Planning: all</option></select>
+    <select id="f-C"><option value="">Violence: all</option></select>
+    <select id="f-D"><option value="">Relation: all</option></select>
+    <select id="f-E"><option value="">Access: all</option></select>
+    <select id="f-country"><option value="">Country: all</option></select>
+    <button class="more" id="f-reset" type="button">Reset</button>
+  </div>
+  <p class="small" id="f-count"></p>
   <div id="cases-coded"></div>
   <button class="more" id="show-pending">Show cases yet to be classified ▾</button>
   <div id="cases-pending" hidden></div>
@@ -449,13 +478,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "A-TG"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 4,
 "D": "D-A",
 "E": [
 "UNKNOWN"
 ],
-"note": "A woman in the group gained the victim's trust months before; hours of restraint with extreme violence (held for hours: C-4, the highest level reached). Guardia Civil operation announced (A). Whether crypto was actually transferred is not reported.",
+"note": "A woman in the group gained the victim's trust months before; hours of restraint with extreme violence (held for hours: C-4, the highest level reached). Guardia Civil operation announced (A). Whether crypto was actually transferred is not reported. Planning recoded to B-4 by El: a layered trap, with a member embedded for months to gather intelligence before others carried out the attack.",
 "coded": true
 },
 {
@@ -470,13 +499,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "A-TG"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 2,
 "D": "D-P",
 "E": [
 "E-AT"
 ],
-"note": "Lengthy surveillance, fake client meeting, offenders posed as law enforcement; weapons threatened and ~USD 100k transferred. Organised group with organisers abroad, but no clear division of labour or data purchase reported, so B-3 rather than B-4. MVD/SGB operation (A).",
+"note": "Lengthy surveillance, fake client meeting, offenders posed as law enforcement; weapons threatened and ~USD 100k transferred. Organised group with organisers abroad, but no clear division of labour or data purchase reported, so B-3 rather than B-4. MVD/SGB operation (A). B-4 under the revised codebook: organisers separate from the operatives and fled abroad (division of labour).",
 "coded": true
 },
 {
@@ -913,13 +942,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A-TG",
 "A-PX"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 3,
 "D": "UNKNOWN",
 "E": [
 "E-AT"
 ],
-"note": "Tipped off about the victim's money; girlfriend taken hostage as leverage, victim beaten until he sent 11,942 USDT. Remanded and charged."
+"note": "Tipped off about the victim's money; girlfriend taken hostage as leverage, victim beaten until he sent 11,942 USDT. Remanded and charged. B-4 under the revised codebook: an informant tipped off the attackers (intelligence role separate from execution)."
 },
 {
 "id": 693,
@@ -977,13 +1006,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "UNKNOWN"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 2,
 "D": "D-P",
 "E": [
 "N/A"
 ],
-"note": "Telegram fake-sale set-up; pepper spray and cash robbery, coordinated remotely. Coordinator sentenced."
+"note": "Telegram fake-sale set-up; pepper spray and cash robbery, coordinated remotely. Coordinator sentenced. B-4 under the revised codebook: a coordinator directed the minors remotely via Telegram (remote orchestrator)."
 },
 {
 "id": 696,
@@ -1061,13 +1090,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "UNKNOWN"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 1,
 "D": "D-P",
 "E": [
 "N/A"
 ],
-"note": "Scam victim's cash snatched at a staged crypto exchange; six arrested."
+"note": "Scam victim's cash snatched at a staged crypto exchange; six arrested. B-4 under the revised codebook: part of a layered scam network with separate roles (division of labour)."
 },
 {
 "id": 700,
@@ -1145,13 +1174,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "A-TG"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 2,
 "D": "D-P",
 "E": [
 "E-AT"
 ],
-"note": "Lured with a USDT purchase, forcibly taken, forced to send 4,000 USDT. Victim's details leaked by two police constables; both remanded."
+"note": "Lured with a USDT purchase, forcibly taken, forced to send 4,000 USDT. Victim's details leaked by two police constables; both remanded. B-4 under the revised codebook: police constables supplied the victim's details (intelligence role separate from execution)."
 },
 {
 "id": 704,
@@ -1334,13 +1363,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "UNKNOWN"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 1,
 "D": "D-P",
 "E": [
 "N/A"
 ],
-"note": "Fake USDT seller network; cash snatched. Roles included broker, surveillance and retrieval; four detained."
+"note": "Fake USDT seller network; cash snatched. Roles included broker, surveillance and retrieval; four detained. B-4 under the revised codebook: separate ringleader, fake broker, surveillance and retrieval roles (division of labour)."
 },
 {
 "id": 713,
@@ -1418,13 +1447,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "UNKNOWN"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 1,
 "D": "D-P",
 "E": [
 "N/A"
 ],
-"note": "Investment-scam cash handover snatched; seven referred for aggravated robbery."
+"note": "Investment-scam cash handover snatched; seven referred for aggravated robbery. B-4 under the revised codebook: a collector backed by upstream network leadership (division of labour)."
 },
 {
 "id": 717,
@@ -1565,13 +1594,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "UNKNOWN"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 1,
 "D": "D-P",
 "E": [
 "N/A"
 ],
-"note": "A fraud-network collector \"robbed the robbers\", knowing her cash amount via the network; 12 arrested."
+"note": "A fraud-network collector \"robbed the robbers\", knowing her cash amount via the network; 12 arrested. B-4 under the revised codebook: the fraud network supplied the cash amount to the robbers (intelligence role)."
 },
 {
 "id": 724,
@@ -2280,13 +2309,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "UNKNOWN"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 2,
 "D": "D-P",
 "E": [
 "N/A"
 ],
-"note": "Bitcoin-for-cash lure; buyer locked in, robbed and beaten. Four foreign nationals intercepted."
+"note": "Bitcoin-for-cash lure; buyer locked in, robbed and beaten. Four foreign nationals intercepted. B-4 under the revised codebook: foreign offenders (US and UK nationals) operating in Montenegro (transnational)."
 },
 {
 "id": 758,
@@ -2322,13 +2351,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "A-TG"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 1,
 "D": "D-S",
 "E": [
 "N/A"
 ],
-"note": "Three armed, masked men came to extort crypto. Victim identified through the Waltio crypto-tax data leak; they fled empty-handed."
+"note": "Three armed, masked men came to extort crypto. Victim identified through the Waltio crypto-tax data leak; they fled empty-handed. B-4 under the revised codebook: victim identified through a leaked dataset circulated on the darknet (data obtained)."
 },
 {
 "id": 760,
@@ -2343,13 +2372,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "A-TG"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 4,
 "D": "D-B",
 "E": [
 "E-AT"
 ],
-"note": "Lured by a woman, beaten and held seven hours, bound, threatened with a pistol and cut. He entered a duress code that blocked transfers. Motive: a delay converting €7k for the gang leader."
+"note": "Lured by a woman, beaten and held seven hours, bound, threatened with a pistol and cut. He entered a duress code that blocked transfers. Motive: a delay converting €7k for the gang leader. B-4 under the revised codebook: a woman acted as lure while the gang carried out the attack (layered trap / division of labour)."
 },
 {
 "id": 761,
@@ -2576,14 +2605,14 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "A-TG"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 4,
 "D": "D-B",
 "E": [
 "E-PW",
 "E-AT"
 ],
-"note": "Women lured to Lahore by a crypto-investment partner; held captive, gang-raped and threatened to give up access; ~$100k in crypto received. Four arrested."
+"note": "Women lured to Lahore by a crypto-investment partner; held captive, gang-raped and threatened to give up access; ~$100k in crypto received. Four arrested. B-4 under the revised codebook: victims lured internationally on business visas (transnational)."
 },
 {
 "id": 772,
@@ -2810,13 +2839,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A-TG",
 "A-PX"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 4,
 "D": "D-A",
 "E": [
 "E-AT"
 ],
-"note": "Lured by an acquaintance, tied up, beaten and threatened; abuse shown on video to his brother in Dubai, who sent ~584,000 USDT via QR code. Seven arrested."
+"note": "Lured by an acquaintance, tied up, beaten and threatened; abuse shown on video to his brother in Dubai, who sent ~584,000 USDT via QR code. Seven arrested. B-4 under the revised codebook: an acquaintance acted as lure for an alleged mastermind (division of labour)."
 },
 {
 "id": 783,
@@ -2936,13 +2965,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "UNKNOWN"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 2,
 "D": "D-P",
 "E": [
 "N/A"
 ],
-"note": "Trust built with a small real USDT transfer, then fake Crime Branch officers beat him and took cash. Six arrested."
+"note": "Trust built with a small real USDT transfer, then fake Crime Branch officers beat him and took cash. Six arrested. B-4 under the revised codebook: trust-builders on WhatsApp plus a separate fake-police team (division of labour)."
 },
 {
 "id": 789,
@@ -3398,13 +3427,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 "A": [
 "A-TG"
 ],
-"B": "B-3",
+"B": "B-4",
 "C": 1,
 "D": "UNKNOWN",
 "E": [
 "E-AT"
 ],
-"note": "Armed robbers forced a $820k crypto transfer. Arrest warrants for five foreign nationals."
+"note": "Armed robbers forced a $820k crypto transfer. Arrest warrants for five foreign nationals. B-4 under the revised codebook: foreign nationals operating in Thailand against a Turkish victim (transnational)."
 },
 {
 "id": 811,
@@ -3841,7 +3870,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   const head = c => `<div class="meta">${esc(c.date)} · ${esc(c.loc)}</div><h3>${esc(c.victim)}</h3>`;
   const link = c => c.link ? ` <a href="${esc(c.link)}" target="_blank" rel="noopener">source ↗</a>` : '';
   const coded = cases.filter(c => c.coded), pending = cases.filter(c => !c.coded);
-  document.getElementById('cases-coded').innerHTML = coded.map(c => `
+  const card = c => `
     <div class="card case">${head(c)}
       <p>${esc(c.text)}${link(c)}</p>
       <div class="chips">
@@ -3850,7 +3879,41 @@ document.getElementById('year').textContent = new Date().getFullYear();
       </div>
       ${meter(c)}
       <div class="note">Coder's note: ${esc(c.note)}</div>
-    </div>`).join('');
+    </div>`;
+
+  // ---- filters ----
+  const country = c => c.loc.split(',').pop().trim();
+  const vlabel = c => c.C === 'UNKNOWN' ? 'UNKNOWN' : (c.C === null || c.C === undefined) ? 'N/A' : 'C-' + c.C;
+  const F = {
+    defn: c => [c.defn], conf: c => [c.conf], A: c => c.A, B: c => [c.B],
+    C: c => [vlabel(c)], D: c => [c.D], E: c => c.E, country: c => [country(c)]
+  };
+  const order = v => v === 'UNKNOWN' ? 'zz1' : v === 'N/A' ? 'zz2' : v;
+  const names = {defn:'Definition', conf:'Confidence', A:'Type', B:'Planning', C:'Violence', D:'Relation', E:'Access', country:'Country'};
+  Object.keys(F).forEach(k => {
+    const sel = document.getElementById('f-' + k);
+    const vals = [...new Set(coded.flatMap(F[k]))].sort((a, b) => order(a).localeCompare(order(b)));
+    vals.forEach(v => sel.insertAdjacentHTML('beforeend', `<option value="${esc(v)}">${names[k]}: ${esc(v)} (${coded.filter(c => F[k](c).includes(v)).length})</option>`));
+  });
+  const q = document.getElementById('f-q');
+  function render(){
+    const term = q.value.trim().toLowerCase();
+    const list = coded.filter(c => {
+      for (const k of Object.keys(F)) {
+        const v = document.getElementById('f-' + k).value;
+        if (v && !F[k](c).includes(v)) return false;
+      }
+      return !term || [c.date, c.victim, c.loc, c.text, c.note].join(' ').toLowerCase().includes(term);
+    });
+    Object.keys(F).forEach(k => { const s = document.getElementById('f-' + k); s.classList.toggle('set', !!s.value); });
+    document.getElementById('cases-coded').innerHTML = list.length ? list.map(card).join('') : '<p class="empty">No cases match these filters.</p>';
+    document.getElementById('f-count').textContent = `Showing ${list.length} of ${coded.length} coded cases`;
+  }
+  document.getElementById('case-filters').addEventListener('input', render);
+  document.getElementById('f-reset').addEventListener('click', () => {
+    q.value = ''; Object.keys(F).forEach(k => document.getElementById('f-' + k).value = ''); render();
+  });
+  render();
   document.getElementById('cases-pending').innerHTML = pending.map(c => `
     <div class="card case pending"><span class="pend">YET TO BE CLASSIFIED</span>${head(c)}
       <p>${esc(c.text.length > 240 ? c.text.slice(0, 240) + '…' : c.text)}${link(c)}</p>
