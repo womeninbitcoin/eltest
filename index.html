@@ -88,10 +88,10 @@ header{
   margin-left:3px;vertical-align:-2px;animation:blink 1.1s steps(1) infinite;box-shadow:0 0 8px var(--pink)}
 @keyframes blink{50%{opacity:0}}
 
-nav ul{list-style:none;display:flex;gap:6px}
+nav ul{list-style:none;display:flex;gap:2px}
 nav a{
-  display:block;padding:8px 12px;border-radius:999px;
-  color:var(--pink-soft);font-size:.85rem;font-weight:400;
+  display:block;padding:8px 10px;border-radius:999px;
+  color:var(--pink-soft);font-size:.8rem;font-weight:400;
   border:1px solid transparent;white-space:nowrap;
 }
 nav a:hover{color:var(--pink);border-color:var(--pink-dim)}
@@ -106,7 +106,7 @@ nav a.ext::after{content:" ↗";font-size:.75em}
 .menu-btn .chev{display:inline-block;transition:transform .3s}
 .menu-btn[aria-expanded="true"] .chev{transform:rotate(180deg)}
 
-@media (max-width:1000px){
+@media (max-width:1180px){
   .menu-btn{display:block}
   nav{
     position:absolute;top:100%;left:12px;right:12px;
@@ -238,6 +238,32 @@ p{margin-bottom:16px}
 @media (max-width:560px){.filters #f-reset{grid-column:1/-1}}
 .empty{text-align:center;opacity:.6;padding:30px}
 
+/* ---------- Tools ---------- */
+.tools{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
+.tool{margin:0;padding:0;overflow:hidden}
+.tool.open{grid-column:1/-1;order:-1}
+.tool-head{all:unset;box-sizing:border-box;cursor:pointer;display:grid;grid-template-columns:96px 1fr auto;gap:16px;align-items:center;
+  width:100%;padding:20px 22px;font-family:var(--font)}
+.tool-head:focus-visible{outline:1px solid var(--pink);outline-offset:-4px;border-radius:var(--radius)}
+.tool-icon{color:var(--pink);filter:drop-shadow(0 0 6px rgba(255,46,166,.6));display:block}
+.tool-icon svg{width:96px;height:64px;display:block}
+.tool-icon .f{fill:rgba(255,46,166,.25)}
+.tool-icon .dot{fill:var(--pink)}
+.tool-icon .sweep{transform-origin:60px 40px;animation:sweep 4s linear infinite}
+@keyframes sweep{to{transform:rotate(360deg)}}
+.tool-text h3{margin:6px 0 4px}
+.tool-text .tag{margin-bottom:0}
+.tool-sum{display:block;font-size:.82rem;line-height:1.6;opacity:.85}
+.tool-chev{color:var(--pink);transition:transform .3s}
+.tool.open .tool-chev{transform:rotate(180deg)}
+.tool-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease}
+.tool-body > div{overflow:hidden;padding:0 22px}
+.tool.open .tool-body{grid-template-rows:1fr}
+.tool.open .tool-body > div{padding-bottom:24px;border-top:1px solid var(--pink-dim)}
+h3.sub{font-size:1.3rem;margin:32px 0 12px;text-shadow:0 0 10px rgba(255,46,166,.4)}
+@media (max-width:560px){.tool-head{grid-template-columns:64px 1fr auto;gap:12px;padding:16px}.tool-icon svg{width:64px;height:44px}.tool-body > div{padding:0 16px}}
+.toollink{display:block}
+
 /* ---------- Blog ---------- */
 .post .meta{font-size:.75rem;opacity:.65;margin-bottom:8px}
 .post .full{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s ease}
@@ -291,12 +317,13 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
     <nav id="menu">
       <ul>
         <li><a href="#intro" data-page="intro">Intro</a></li>
+        <li><a href="#blog" data-page="blog">Blog</a></li>
+        <li><a href="#wibs" data-page="wibs">WiBS</a></li>
         <li><a href="#attacks" data-page="attacks">Wrench Attacks</a></li>
         <li><a href="#youtube" data-page="youtube">YouTube Series</a></li>
-        <li><a href="#blog" data-page="blog">Blog</a></li>
-        <li><a href="#resources" data-page="resources">Resources</a></li>
-        <li><a href="#wibs" data-page="wibs">WiBS</a></li>
+        <li><a href="#tools" data-page="tools">Tools built by El</a></li>
         <li><a href="#contact" data-page="contact">Contact</a></li>
+        <li><a href="#resources" data-page="resources">Resources</a></li>
         <li><a href="https://x.com/El_FreedomFairy" target="_blank" rel="noopener" class="ext">X</a></li>
       </ul>
     </nav>
@@ -375,8 +402,128 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
   </div>
 
 
+  <!-- LINK TO CODING TOOL -->
+  <a class="card toollink" href="#tools" data-open-tool="coding">
+    <span class="tag">Tool</span>
+    <h3>El's Wrench Attack Coding Tool 2026 →</h3>
+    <p>Every 2026 case from Lopp's database, classified with my own definition and codebook. Filter by violence, planning, relationship, access method and more.</p>
+  </a>
+
+  <!-- ✏️ SOURCES — copy a <li>…</li> line to add another -->
+  <h2>Sources</h2>
+  <ol class="sources">
+    <li>Investigating Wrench Attacks: Physical Attacks Targeting Cryptocurrency Users by M. Ordekian and Collegues, 2024 — <a href="https://www.repository.cam.ac.uk/items/d988e10f-b751-408a-a79e-54f2518b3e70" target="_blank" rel="noopener">https://www.repository.cam.ac.uk/items/d988e10f-b751-408a-a79e-54f2518b3e70</a></li>
+    <li>Physical Attacks to Take Crypto by Gart.io — <a href="https://gart.io/attacks" target="_blank" rel="noopener">https://gart.io/attacks</a></li>
+    <li>Known Physical Bitcoin Attacks by J. Lopp — <a href="https://jlopp.github.io/physical-bitcoin-attacks/" target="_blank" rel="noopener">jlopp.github.io/physical-bitcoin-attacks</a></li>
+    <li>Violent Crypto Wrench Attacks by Chainalysis Team, 2026 — <a href="https://www.chainalysis.com/blog/violent-crypto-wrench-attacks-2026/" target="_blank" rel="noopener">https://www.chainalysis.com/blog/violent-crypto-wrench-attacks-2026/</a></li>
+  </ol>
+</section>
+
+<!-- ======================= YOUTUBE SERIES ======================= -->
+<section class="page" id="youtube">
+  <div class="prompt">./youtube_series</div>
+  <h1>YouTube Series</h1>
+  <p class="lead">When Bitcoin Gets Physical.</p>
+  <p>In the modern era it is becoming increasingly common for attacks on crypto holders to move beyond the digital world.</p>
+    <p>An evolving threat landscape calls for an expansion of the way we understand our own place in this ecosystem. It is important to me that we don't settle on extremely technical self-custody setups as the only suggested response to wrench attacks, so I took it on myself to read and understand the research and translate it for you.</p>
+
+  <!-- ✏️ VIDEOS
+       Paste each video's ID into data-youtube.
+       The ID is the bit after "v=" in a YouTube link,
+       e.g. youtube.com/watch?v=dQw4w9WgXcQ  →  dQw4w9WgXcQ
+       Copy a whole <div class="card">…</div> block to add another episode. -->
+
+  <div class="card">
+    <div class="video" data-youtube="aOeIs9SAdfY"></div>
+    <div class="ep">10/10/2026</div>
+    <h3>Crypto Wrench Attacks: Know Your Enemy</h3>
+    <p>In this episode I investigate the types of people commiting physical attacks against crypto holders. We identify the difference between offender profiles and discuss the importance of understanding such differences in order to tailor methods to mitigate our risk of attack.</p>
+  </div>
+
+  <div class="card">
+    <div class="video" data-youtube="tu1rMRwi7vk&t=7s"></div>
+    <div class="ep">28/09/2026</div>
+    <h3>The Melendez Family Case</h3>
+    <p>In September 2026, five lives were lost in a home invasion in Mexico that prosecutors say was aimed at a hardware wallet. Among the victims was a domestic worker who had no involvement in the family's finances. This video looks at that case as carefully as the reporting allows, and uses it to examine proxy targets: the partners, children, parents, and household staff who sit inside a holder's physical perimeter without any say in their custody decisions.</p>
+  </div>
+
+  <div class="card">
+    <div class="video" data-youtube="fKSsih-96Ks"></div>
+    <div class="ep">10/09/2026</div>
+    <h3>How Being Public About Bitcoin Makes You A Target</h3>
+    <p>If you are open about your involvement in crypto publically, then you don't need a data leak to put you in the radar of potential attackers. Being public about your holdings has been identified by research as one of the greatest risk factors preceeding a wrench attack, this is especially aggravated if you are "flexing" your wealth too.</p>
+  </div>
+
+   <div class="card">
+    <div class="video" data-youtube="XNswY6EhVzo&t=317s"></div>
+    <div class="ep">04/08/2026</div>
+    <h3>What Makes Someone More Vulnerable to a $5 Wrench Attack?</h3>
+    <p>I've identified several recurring risk factors across documented cases — from public displays of wealth and poor operational security to occupation, location and online exposure.</p>
+  </div>
+
+    <div class="card">
+    <div class="video" data-youtube="gg-Jlimz060&t=5s"></div>
+    <div class="ep">25/07/2026</div>
+    <h3>Bitcoin's Forgotten Security Problem</h3>
+    <p>Bitcoin has solved many of the technical problems surrounding money. Securing it, however, has always involved more than cryptography. In this series, I explore Bitcoin wrench attacks: the use of coercion, intimidation, kidnapping and violence to steal Bitcoin from individuals. Rather than focusing solely on wallets, multisig setups or hardware devices, I examine the human element through the lens of criminology, economics and history.</p>
+  </div>
+</section>
+
+<!-- ======================= BLOG ======================= -->
+<section class="page" id="blog">
+  <div class="prompt">./blog</div>
+  <h1>Blog</h1>
+
+  <!-- ✏️ POSTS — newest at the top.
+       Copy a whole <article>…</article> block to add a post.
+       "excerpt" shows by default; everything inside "full" appears on Read more. -->
+
+  <article class="card post">
+    <div class="meta">[DD Month YYYY]</div>
+    <h3>[Post title]</h3>
+    <p class="excerpt">[A short teaser — the first two or three lines of the post.]</p>
+    <div class="full"><div>
+      <p>[The rest of the post goes here.]</p>
+      <p>[Add extra RAWR]</p>
+    </div></div>
+    <button class="more">Read more ▾</button>
+  </article>
+
+  <article class="card post">
+    <div class="meta">[DD Month YYYY]</div>
+    <h3>[Post title]</h3>
+    <p class="excerpt">[A short teaser — the first two or three lines of the post.]</p>
+    <div class="full"><div>
+      <p>[The rest of the post goes here.]</p>
+    </div></div>
+    <button class="more">Read more ▾</button>
+  </article>
+</section>
+
+<!-- ======================= TOOLS BUILT BY EL ======================= -->
+<section class="page" id="tools">
+  <div class="prompt">./tools</div>
+  <h1>Tools built by El</h1>
+  <p class="lead">Things I've built from my research. Click a tool to open it.</p>
+
+  <div class="tools">
+
+    <!-- TOOL 1 -->
+    <article class="card tool" id="tool-coding">
+      <button class="tool-head" type="button" aria-expanded="false">
+        <span class="tool-icon"><svg viewBox="0 0 120 80" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+<path d="M22 22 L10 40 L22 58"/><path d="M98 22 L110 40 L98 58"/>
+<rect x="34" y="48" width="8" height="10" rx="1.5" class="f"/><rect x="46" y="40" width="8" height="18" rx="1.5" class="f"/>
+<rect x="58" y="32" width="8" height="26" rx="1.5" class="f"/><rect x="70" y="26" width="8" height="32" rx="1.5"/><rect x="82" y="20" width="8" height="38" rx="1.5"/>
+<path d="M34 16 h24" opacity=".6"/><path d="M34 22 h14" opacity=".4"/></g></svg></span>
+        <span class="tool-text"><span class="tag">Research</span>
+          <h3>El's Wrench Attack Coding Tool 2026</h3>
+          <span class="tool-sum">Every 2026 case from Lopp's database, coded with my own definition and codebook. Filter and explore.</span></span>
+        <span class="tool-chev">▾</span>
+      </button>
+      <div class="tool-body"><div>
   <!-- ======================= MY DEFINITION ======================= -->
-  <h2>My Definition of a Wrench Attack</h2>
+  <h3 class="sub">My Definition of a Wrench Attack</h3>
   <p class="small">I have come to this particular definition, which may differ from others, as a way to be precise about the type of crime being committed, and to better understand what transpires: the offenders, the victims and the risks.</p>
   <div class="defbox">
     <p>Any event in which a person is targeted with physical force, credible threat of physical force, real-world psychological coercion, or deception involving real-world presence — with intent to compel the transfer, disclosure, or surrender of cryptocurrency or cryptographic access credentials (private keys, seed phrases, PINs, or passwords).</p>
@@ -384,9 +531,10 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
   </div>
 
   <!-- ======================= 2026 CASE CODING ======================= -->
-  <h2>El's Wrench Attack Coding Tool</h2>
+  <h3 class="sub">The 2026 Cases</h3>
+  <p class="small"><b>Last updated:</b> 10 November 2026 · covers Lopp's database entries up to 31 October 2026</p>
   <p class="small">Each 2026 case from Lopp's database, classified against my codebook. Coding is based on the case summary and the source Lopp links; coverage often goes well beyond that single link. <b>UNKNOWN</b> means the reporting doesn't say. <b>YET TO BE CLASSIFIED</b> means the case hasn't been coded yet.</p>
-   <p>Please note, not all of the wrench attacks included in Lopp's database are considered as wrench attacs per my definition. This is a limitation of the research, where different sources score attacks using vastly different metrics.</p>
+   <p>Please note, not all of the wrench attacks included in Lopp's database are considered as wrench attacks per my definition. This is a limitation of the research, where different sources score attacks using vastly different metrics.</p>
   <p class="small" id="case-count"></p>
 
   <details class="legend">
@@ -445,6 +593,7 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
   </div>
   <p class="small" id="f-count"></p>
   <div id="cases-coded"></div>
+  <button class="more" id="see-all" type="button">See all ▾</button>
   <button class="more" id="show-pending">Show cases yet to be classified ▾</button>
   <div id="cases-pending" hidden></div>
 
@@ -3549,95 +3698,28 @@ footer .sig{color:var(--pink);opacity:1;font-weight:600}
 ]
   </script>
 
-  <!-- ✏️ SOURCES — copy a <li>…</li> line to add another -->
-  <h2>Sources</h2>
-  <ol class="sources">
-    <li>Investigating Wrench Attacks: Physical Attacks Targeting Cryptocurrency Users by M. Ordekian and Collegues, 2024 — <a href="https://www.repository.cam.ac.uk/items/d988e10f-b751-408a-a79e-54f2518b3e70" target="_blank" rel="noopener">https://www.repository.cam.ac.uk/items/d988e10f-b751-408a-a79e-54f2518b3e70</a></li>
-    <li>Physical Attacks to Take Crypto by Gart.io — <a href="https://gart.io/attacks" target="_blank" rel="noopener">https://gart.io/attacks</a></li>
-    <li>Known Physical Bitcoin Attacks by J. Lopp — <a href="https://jlopp.github.io/physical-bitcoin-attacks/" target="_blank" rel="noopener">jlopp.github.io/physical-bitcoin-attacks</a></li>
-    <li>Violent Crypto Wrench Attacks by Chainalysis Team, 2026 — <a href="https://www.chainalysis.com/blog/violent-crypto-wrench-attacks-2026/" target="_blank" rel="noopener">https://www.chainalysis.com/blog/violent-crypto-wrench-attacks-2026/</a></li>
-  </ol>
-</section>
+      </div></div>
+    </article>
 
-<!-- ======================= YOUTUBE SERIES ======================= -->
-<section class="page" id="youtube">
-  <div class="prompt">./youtube_series</div>
-  <h1>YouTube Series</h1>
-  <p class="lead">When Bitcoin Gets Physical.</p>
-  <p>In the modern era it is becoming increasingly common for attacks on crypto holders to move beyond the digital world.</p>
-    <p>An evolving threat landscape calls for an expansion of the way we understand our own place in this ecosystem. It is important to me that we don't settle on extremely technical self-custody setups as the only suggested response to wrench attacks, so I took it on myself to read and understand the research and translate it for you.</p>
+    <!-- TOOL 2 -->
+    <article class="card tool" id="tool-risk">
+      <button class="tool-head" type="button" aria-expanded="false">
+        <span class="tool-icon"><svg viewBox="0 0 120 80" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+<circle cx="60" cy="40" r="30" opacity=".35"/><circle cx="60" cy="40" r="20" opacity=".55"/><circle cx="60" cy="40" r="10"/>
+<path d="M60 6 v68 M26 40 h68" opacity=".3"/><path d="M60 40 L82 22" class="sweep"/>
+<circle cx="76" cy="30" r="2.6" class="dot"/><circle cx="46" cy="52" r="2" class="dot" opacity=".7"/><circle cx="70" cy="58" r="1.6" class="dot" opacity=".5"/></g></svg></span>
+        <span class="tool-text"><span class="tag">Coming soon</span>
+          <h3>Map My Risk</h3>
+          <span class="tool-sum">An interactive tool to assess your personal wrench attack risk. Use it online, download it for offline use, or print it.</span></span>
+        <span class="tool-chev">▾</span>
+      </button>
+      <div class="tool-body"><div>
+        <!-- ✏️ MAP MY RISK — the tool will go here -->
+        <p>[Map My Risk is in development. It will be usable here online, downloadable for offline use, and available as a printable version.]</p>
+      </div></div>
+    </article>
 
-  <!-- ✏️ VIDEOS
-       Paste each video's ID into data-youtube.
-       The ID is the bit after "v=" in a YouTube link,
-       e.g. youtube.com/watch?v=dQw4w9WgXcQ  →  dQw4w9WgXcQ
-       Copy a whole <div class="card">…</div> block to add another episode. -->
-
-  <div class="card">
-    <div class="video" data-youtube="aOeIs9SAdfY"></div>
-    <div class="ep">10/10/2026</div>
-    <h3>Crypto Wrench Attacks: Know Your Enemy</h3>
-    <p>In this episode I investigate the types of people commiting physical attacks against crypto holders. We identify the difference between offender profiles and discuss the importance of understanding such differences in order to tailor methods to mitigate our risk of attack.</p>
   </div>
-
-  <div class="card">
-    <div class="video" data-youtube="tu1rMRwi7vk&t=7s"></div>
-    <div class="ep">28/09/2026</div>
-    <h3>The Melendez Family Case</h3>
-    <p>In September 2026, five lives were lost in a home invasion in Mexico that prosecutors say was aimed at a hardware wallet. Among the victims was a domestic worker who had no involvement in the family's finances. This video looks at that case as carefully as the reporting allows, and uses it to examine proxy targets: the partners, children, parents, and household staff who sit inside a holder's physical perimeter without any say in their custody decisions.</p>
-  </div>
-
-  <div class="card">
-    <div class="video" data-youtube="fKSsih-96Ks"></div>
-    <div class="ep">10/09/2026</div>
-    <h3>How Being Public About Bitcoin Makes You A Target</h3>
-    <p>If you are open about your involvement in crypto publically, then you don't need a data leak to put you in the radar of potential attackers. Being public about your holdings has been identified by research as one of the greatest risk factors preceeding a wrench attack, this is especially aggravated if you are "flexing" your wealth too.</p>
-  </div>
-
-   <div class="card">
-    <div class="video" data-youtube="XNswY6EhVzo&t=317s"></div>
-    <div class="ep">04/08/2026</div>
-    <h3>What Makes Someone More Vulnerable to a $5 Wrench Attack?</h3>
-    <p>I've identified several recurring risk factors across documented cases — from public displays of wealth and poor operational security to occupation, location and online exposure.</p>
-  </div>
-
-    <div class="card">
-    <div class="video" data-youtube="gg-Jlimz060&t=5s"></div>
-    <div class="ep">25/07/2026</div>
-    <h3>Bitcoin's Forgotten Security Problem</h3>
-    <p>Bitcoin has solved many of the technical problems surrounding money. Securing it, however, has always involved more than cryptography. In this series, I explore Bitcoin wrench attacks: the use of coercion, intimidation, kidnapping and violence to steal Bitcoin from individuals. Rather than focusing solely on wallets, multisig setups or hardware devices, I examine the human element through the lens of criminology, economics and history.</p>
-  </div>
-</section>
-
-<!-- ======================= BLOG ======================= -->
-<section class="page" id="blog">
-  <div class="prompt">./blog</div>
-  <h1>Blog</h1>
-
-  <!-- ✏️ POSTS — newest at the top.
-       Copy a whole <article>…</article> block to add a post.
-       "excerpt" shows by default; everything inside "full" appears on Read more. -->
-
-  <article class="card post">
-    <div class="meta">[DD Month YYYY]</div>
-    <h3>[Post title]</h3>
-    <p class="excerpt">[A short teaser — the first two or three lines of the post.]</p>
-    <div class="full"><div>
-      <p>[The rest of the post goes here.]</p>
-      <p>[Add extra RAWR]</p>
-    </div></div>
-    <button class="more">Read more ▾</button>
-  </article>
-
-  <article class="card post">
-    <div class="meta">[DD Month YYYY]</div>
-    <h3>[Post title]</h3>
-    <p class="excerpt">[A short teaser — the first two or three lines of the post.]</p>
-    <div class="full"><div>
-      <p>[The rest of the post goes here.]</p>
-    </div></div>
-    <button class="more">Read more ▾</button>
-  </article>
 </section>
 
 <!-- ======================= RESOURCES ======================= -->
@@ -3855,6 +3937,16 @@ document.querySelectorAll('.post .more').forEach(b => {
 document.getElementById('year').textContent = new Date().getFullYear();
 
 
+// ---------- tools: click to expand ----------
+document.querySelectorAll('.tool-head').forEach(h => h.addEventListener('click', () => {
+  const t = h.closest('.tool'), open = t.classList.toggle('open');
+  h.setAttribute('aria-expanded', open);
+}));
+document.querySelectorAll('[data-open-tool]').forEach(a => a.addEventListener('click', () => {
+  const t = document.getElementById('tool-' + a.dataset.openTool);
+  setTimeout(() => { t.classList.add('open'); t.querySelector('.tool-head').setAttribute('aria-expanded', true); }, 50);
+}));
+
 // ---------- 2026 case coding ----------
 (() => {
   const el = document.getElementById('case-data'); if (!el) return;
@@ -3875,7 +3967,7 @@ document.getElementById('year').textContent = new Date().getFullYear();
   };
   const head = c => `<div class="meta">${esc(c.date)} · ${esc(c.loc)}</div><h3>${esc(c.victim)}</h3>`;
   const link = c => c.link ? ` <a href="${esc(c.link)}" target="_blank" rel="noopener">source ↗</a>` : '';
-  const coded = cases.filter(c => c.coded), pending = cases.filter(c => !c.coded);
+  const coded = cases.filter(c => c.coded).sort((a, b) => b.id - a.id), pending = cases.filter(c => !c.coded);
   const card = c => `
     <div class="card case">${head(c)}
       <p>${esc(c.text)}${link(c)}</p>
@@ -3902,6 +3994,8 @@ document.getElementById('year').textContent = new Date().getFullYear();
     vals.forEach(v => sel.insertAdjacentHTML('beforeend', `<option value="${esc(v)}">${names[k]}: ${esc(v)} (${coded.filter(c => F[k](c).includes(v)).length})</option>`));
   });
   const q = document.getElementById('f-q');
+  let showAll = false;
+  document.getElementById('see-all').addEventListener('click', () => { showAll = !showAll; render(); });
   function render(){
     const term = q.value.trim().toLowerCase();
     const list = coded.filter(c => {
@@ -3912,12 +4006,16 @@ document.getElementById('year').textContent = new Date().getFullYear();
       return !term || [c.date, c.victim, c.loc, c.text, c.note].join(' ').toLowerCase().includes(term);
     });
     Object.keys(F).forEach(k => { const s = document.getElementById('f-' + k); s.classList.toggle('set', !!s.value); });
-    document.getElementById('cases-coded').innerHTML = list.length ? list.map(card).join('') : '<p class="empty">No cases match these filters.</p>';
-    document.getElementById('f-count').textContent = `Showing ${list.length} of ${coded.length} coded cases`;
+    const shown = showAll ? list : list.slice(0, 10);
+    document.getElementById('cases-coded').innerHTML = list.length ? shown.map(card).join('') : '<p class="empty">No cases match these filters.</p>';
+    document.getElementById('f-count').textContent = `Showing ${shown.length} of ${list.length} matching cases (${coded.length} coded in total), newest first`;
+    const sa = document.getElementById('see-all');
+    sa.hidden = list.length <= 10;
+    sa.textContent = showAll ? 'Show fewer ▴' : `See all ${list.length} ▾`;
   }
-  document.getElementById('case-filters').addEventListener('input', render);
+  document.getElementById('case-filters').addEventListener('input', () => { showAll = false; render(); });
   document.getElementById('f-reset').addEventListener('click', () => {
-    q.value = ''; Object.keys(F).forEach(k => document.getElementById('f-' + k).value = ''); render();
+    q.value = ''; Object.keys(F).forEach(k => document.getElementById('f-' + k).value = ''); showAll = false; render();
   });
   render();
   document.getElementById('cases-pending').innerHTML = pending.map(c => `
